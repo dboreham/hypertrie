@@ -1,6 +1,6 @@
 {
   "name": "hypertrie-debug",
-  "version": "3.4.4",
+  "version": "8.0.1",
   "description": "Distributed single writer key/value store",
   "main": "index.js",
   "dependencies": {
