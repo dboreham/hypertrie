@@ -1,3 +1,10 @@
+# hypertrie-debug
+
+This is a fork of [hypertrie](https://github.com/mafintosh/hypertrie) with added [debug](https://www.npmjs.com/package/debug) output that can be helpful
+in understanding its operation. 
+
+Use DEBUG=hypertrie,hypertrie:get,hypertrie:put, etc.
+
 # hypertrie
 
 Distributed single writer key/value store
@@ -5,8 +12,6 @@ Distributed single writer key/value store
 ```
 npm install hypertrie
 ```
-
-[![Build Status](https://travis-ci.org/mafintosh/hypertrie.svg?branch=master)](https://travis-ci.org/mafintosh/hypertrie)
 
 Uses a rolling hash array mapped trie to index key/value data on top of a [hypercore](https://github.com/mafintosh/hypercore).
 
