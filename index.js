@@ -18,6 +18,8 @@ const hypercore = require('hypercore')
 const inherits = require('inherits')
 const events = require('events')
 
+var debug = require('debug')('hypertrie')
+
 module.exports = HyperTrie
 
 function HyperTrie (storage, key, opts) {
@@ -121,6 +123,7 @@ HyperTrie.prototype.snapshot = function () {
 }
 
 HyperTrie.prototype.head = function (cb) {
+  debug('head');
   if (!this.opened) return readyAndHead(this, cb)
   if (this._checkout !== 0) return this.getBySeq(this._checkout - 1, cb)
   if (this.feed.length < 2) return process.nextTick(cb, null, null)
@@ -215,6 +218,7 @@ HyperTrie.prototype.getBySeq = function (seq, opts, cb) {
   if (seq < 1) return process.nextTick(cb, null, null)
 
   const self = this
+  debug('getblock:', seq);
   this.feed.get(seq, opts, onnode)
 
   function onnode (err, val) {
